@@ -25,7 +25,7 @@ var (
 	paramPrivateKey string
 	paramMemo       string
 	paramGasLimit   = uint64(200000)
-	paramFee        = "1usei"
+	paramFee        string
 	paramSequence   uint64
 	paramUseGrpc    bool
 
@@ -129,7 +129,7 @@ func initFlags() {
 	flag.Uint64Var(&paramAmount, "amount", paramAmount, "amount")
 	flag.Uint64Var(&paramGasLimit, "gasLimit", paramGasLimit, "gas limit")
 	flag.Uint64Var(&paramSequence, "sequence", paramSequence, "sequence number")
-	flag.StringVar(&paramFee, "fee", paramFee, "tx fee")
+	flag.StringVar(&paramFee, "fee", "1usei", "tx fee")
 	flag.StringVar(&paramPublicKey, "publicKey", "", "public Key")
 	flag.StringVar(&paramPrivateKey, "privateKey", "", "private key")
 	flag.StringVar(&paramMemo, "memo", "", "tx memo")
