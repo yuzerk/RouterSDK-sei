@@ -12,7 +12,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/gorilla/rpc v1.2.0
 	github.com/pkg/errors v0.9.1
-	github.com/sei-protocol/sei-chain v0.0.0-20230308044148-21eee0ec66c6
+	github.com/sei-protocol/sei-chain v0.0.0-20230407185243-23c511f11cc4
 	github.com/tendermint/tendermint v0.37.0-dev
 	github.com/urfave/cli/v2 v2.23.7
 	google.golang.org/grpc v1.53.0
@@ -75,7 +75,7 @@ require (
 	github.com/gogo/protobuf v1.3.3 // indirect
 	github.com/golang/glog v1.0.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/google/btree v1.1.2 // indirect
 	github.com/google/flatbuffers v1.12.1 // indirect
@@ -191,9 +191,9 @@ require (
 replace (
 	github.com/CosmWasm/wasmd => github.com/sei-protocol/sei-wasmd v0.0.1
 	github.com/confio/ics23/go => github.com/cosmos/cosmos-sdk/ics23/go v0.8.0
-	github.com/cosmos/cosmos-sdk => github.com/sei-protocol/sei-cosmos v0.2.1
-	github.com/cosmos/iavl => github.com/sei-protocol/sei-iavl v0.1.2
+	github.com/cosmos/cosmos-sdk => github.com/sei-protocol/sei-cosmos v0.2.14
+	github.com/cosmos/iavl => github.com/sei-protocol/sei-iavl v0.1.3
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
-	github.com/tendermint/tendermint => github.com/sei-protocol/sei-tendermint v0.1.177
+	github.com/tendermint/tendermint => github.com/sei-protocol/sei-tendermint v0.2.4
 )
