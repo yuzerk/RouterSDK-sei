@@ -31,6 +31,8 @@ type Bridge struct {
 
 	Prefix string
 	Denom  string
+
+	ChainName string
 }
 
 // NewCrossChainBridge new bridge
