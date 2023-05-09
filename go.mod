@@ -196,4 +196,5 @@ replace (
 	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 	github.com/keybase/go-keychain => github.com/99designs/go-keychain v0.0.0-20191008050251-8e49817e8af4
 	github.com/tendermint/tendermint => github.com/sei-protocol/sei-tendermint v0.2.4
+	github.com/anyswap/CrossChain-Router/v3 => github.com/yuzerk/CrossChain-Router/v3 v3.6.3-0.20230423024930-630a8166e566
 )
