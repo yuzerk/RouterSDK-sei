@@ -27,4 +27,4 @@ node_modules/
 *.swo
 cscope.*
 
-/.idea/*
+.idea/*
