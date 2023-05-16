@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/base64"
 	"fmt"
+	"math/big"
 	"strings"
 
 	"github.com/anyswap/CrossChain-Router/v3/common"
@@ -17,15 +18,19 @@ import (
 var (
 	paramMpc  = "cosmos1zc4qe220ceag38j0rwpanjfetp8lpkcvhutksa"
 	BlockInfo = "/blocks/"
-	urls      = []string{"https://cosmos-mainnet-rpc.allthatnode.com:1317"}
+	urls      = []string{"https://rest.atlantic-2.seinetwork.io:443"}
 
 	br = routersdk.NewCrossChainBridge()
 )
 
 func main() {
 	br.SetGatewayConfig(&tokens.GatewayConfig{APIAddress: urls})
+	testTxHash := "CEA5353DD3FE3BA9880D4B55E29F0AEE0732DE7C086D115B1B2B4FEF7DFA85BE"
+	getTransactionDetail(testTxHash)
+}
 
-	if res, err := GetBlockByNumber(12218750); err != nil {
+func Scan(blockNum uint64) {
+	if res, err := GetBlockByNumber(blockNum); err != nil {
 		log.Fatal("GetBlockByNumber error", "err", err)
 	} else {
 		for _, tx := range res.Block.Data.Txs {
@@ -80,6 +85,38 @@ func GetBlockByNumber(blockNumber uint64) (*GetLatestBlockResponse, error) {
 		}
 	}
 	return nil, tokens.ErrRPCQueryError
+}
+
+func getTransactionDetail(txHash string) {
+	if txRes, err := br.GetTransactionByHash(txHash); err == nil {
+		if err := ParseMemo(txRes.Tx.Body.Memo); err == nil {
+			if err := ParseAmountTotal(txRes.TxResponse.Logs); err == nil {
+				log.Info("verify txHash success", "txHash", txHash)
+			}
+		}
+	}
+}
+
+func getBalanceOf(address string, result *big.Int) {
+	balance, err := br.GetBalance(address)
+	if err != nil {
+		log.Info("get balance error", "address", address, "error", err)
+		*result = *sdk.ZeroInt().BigInt()
+	} else {
+		log.Info("verify balance amount", "balance", balance)
+		*result = *balance
+	}
+}
+
+func getDenomBalanceOf(address string, denom string, result *big.Int) {
+	balance, err := br.GetDenomBalance(address, denom)
+	if err != nil {
+		log.Info("get denom balance error", "address", address, "denom", denom, "error", err)
+		*result = *sdk.ZeroInt().BigInt()
+	} else {
+		log.Info("verify denom balance amount", " denom balance", balance)
+		*result = *balance.BigInt()
+	}
 }
 
 type GetLatestBlockResponse struct {

@@ -1,27 +1,33 @@
-ChainID = "5"
+ChainID = "1000005457226"
 
+# which chain routerConfig smart contract on
+RouterConfigChainId = "5777"
+
+
+# 这个直接配置成router代码里面配置使用的文件路径就行了
 # router config
-RouterConfigFile = "XXXXXX"
-InitRouterServer = false
+RouterConfigFile = "/Users/yuzekai/go/src/CrossChain-Router/params/config-mysei.toml"
+InitRouterServer = true #server: true, oracle:false
+
 
 # listen port
-Port = 12556
+Port = 31555
 
 # CORS config
-AllowedOrigins = []
+AllowedOrigins = ["*"]
 
 # Maximum number of request limit per second
 MaxRequestsLimit = 10
 
 # session tokens
-[[SessionTokens]]
-Token = "0x1111111111111111111111111111111111111111111111111111111111111111"
-User = "user1"
-Salt = "11111"
+#[[SessionTokens]]
+#Token = "0x1111111111111111111111111111111111111111111111111111111111111111"
+#User = "user1"
+#Salt = "11111"
 
 [GatewayConfig]
-APIAddress = ["https://xxxx.xxx"]
-APIAddressExt = []
-EVMAPIAddress = []
-FinalizeAPIAddress = []
-GRPCAPIAddress = []
+#APIAddress = []
+#APIAddressExt = []
+#EVMAPIAddress = []
+#FinalizeAPIAddress = []
+GRPCAPIAddress = ["https://rpc.atlantic-2.seinetwork.io:443"]
